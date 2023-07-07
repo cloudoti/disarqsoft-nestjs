@@ -1,0 +1,12 @@
+POST http://127.0.0.1:5000/login
+Content-Type: application/json
+
+{
+  "username": "daniel",
+  "password": "123456"
+}
+
+###
+GET http://127.0.0.1:5000/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbCIsInN1YiI6MSwiaWF0IjoxNjg4Njg4MzI5LCJleHAiOjE2ODg2ODgzODl9.-pM-quAq7L6ZQf1voV45C3uLg1PjsLYrD97oSP2hZYU
