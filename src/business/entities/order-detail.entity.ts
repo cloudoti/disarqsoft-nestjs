@@ -47,5 +47,4 @@ export class OrderDetailEntity {
     nullable: false,
   })
   total: number;
-  l;
 }
