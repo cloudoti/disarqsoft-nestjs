@@ -17,6 +17,7 @@ import { OrderController } from './controller/order.controller';
 import { EmployeeEntity } from './entities/employee.entity';
 import { EmployeeService } from './service/employee.service';
 import { EmployeeController } from './controller/employee.controller';
+import { RoleController } from './controller/role.controller';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { EmployeeController } from './controller/employee.controller';
     CategoryController,
     OrderController,
     EmployeeController,
+    RoleController,
   ],
   exports: [UserService],
 })
