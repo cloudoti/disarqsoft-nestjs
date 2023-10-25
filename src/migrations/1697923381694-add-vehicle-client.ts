@@ -29,7 +29,7 @@ export class AddVehicleClient1697923381694 implements MigrationInterface {
                  "type"                 character varying NOT NULL,
                  "motor"                character varying NOT NULL,
                  "year"                 character varying NOT NULL,
-                 "status"               boolean           NOT NULL DEFAULT true,
+                 "active"               boolean           NOT NULL DEFAULT true,
                  "client_id"            integer           NOT NULL,
                  CONSTRAINT "PK_187fa17ba39d367e5604b3d1ec9" PRIMARY KEY ("id")
              )`,

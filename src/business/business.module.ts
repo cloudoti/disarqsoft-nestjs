@@ -22,6 +22,8 @@ import { ClientEntity } from './entities/client.entity';
 import { VehicleEntity } from './entities/vehicle.entity';
 import { ClientService } from './service/client.service';
 import { ClientController } from './controller/client.controller';
+import { VehicleService } from './service/vehicle.service';
+import { VehicleController } from './controller/vehicle.controller';
 
 @Module({
   imports: [
@@ -40,6 +42,7 @@ import { ClientController } from './controller/client.controller';
   providers: [
     UserService,
     ClientService,
+    VehicleService,
     ProductService,
     CategoryService,
     OrderService,
@@ -48,6 +51,7 @@ import { ClientController } from './controller/client.controller';
   controllers: [
     UserController,
     ClientController,
+    VehicleController,
     ProductController,
     CategoryController,
     OrderController,

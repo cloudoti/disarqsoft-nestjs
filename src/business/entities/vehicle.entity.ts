@@ -52,7 +52,7 @@ export class VehicleEntity {
 
   @Column({
     nullable: false,
-    default: 1,
+    default: true,
   })
-  status: number;
+  active: boolean;
 }
