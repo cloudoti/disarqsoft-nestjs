@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { CategoryEntity } from './category.entity';
+import { TypeServiceEntity } from './type-service.entity';
 
 @Entity({
   schema: 'das',
@@ -26,17 +26,17 @@ export class ProductEntity {
   })
   price: number;
 
-  @ManyToOne(() => CategoryEntity, (cat) => cat.id, {
-    nullable: false,
+  @ManyToOne(() => TypeServiceEntity, (cat) => cat.id, {
+    //nullable: false,
   })
   @JoinColumn({
-    name: 'category',
+    name: 'type_service_id',
   })
-  category: CategoryEntity;
+  typeService: TypeServiceEntity;
 
   @Column({
     nullable: false,
-    default: 1,
+    default: true,
   })
-  status: number;
+  active: boolean;
 }

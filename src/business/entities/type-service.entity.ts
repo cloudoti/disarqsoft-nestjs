@@ -2,9 +2,9 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
   schema: 'das',
-  name: 'category',
+  name: 'type_service',
 })
-export class CategoryEntity {
+export class TypeServiceEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 

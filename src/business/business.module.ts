@@ -7,9 +7,9 @@ import { AuthModule } from '../auth/auth.module';
 import { ProductEntity } from './entities/product.entity';
 import { ProductController } from './controller/product.controller';
 import { ProductService } from './service/product.service';
-import { CategoryEntity } from './entities/category.entity';
-import { CategoryService } from './service/category.service';
-import { CategoryController } from './controller/category.controller';
+import { TypeServiceEntity } from './entities/type-service.entity';
+import { TypeServiceService } from './service/type-service.service';
+import { TypeServiceController } from './controller/type-service.controller';
 import { OrderEntity } from './entities/order.entity';
 import { OrderDetailEntity } from './entities/order-detail.entity';
 import { OrderService } from './service/order.service';
@@ -32,7 +32,7 @@ import { VehicleController } from './controller/vehicle.controller';
       EmployeeEntity,
       ClientEntity,
       VehicleEntity,
-      CategoryEntity,
+      TypeServiceEntity,
       ProductEntity,
       OrderEntity,
       OrderDetailEntity,
@@ -44,7 +44,7 @@ import { VehicleController } from './controller/vehicle.controller';
     ClientService,
     VehicleService,
     ProductService,
-    CategoryService,
+    TypeServiceService,
     OrderService,
     EmployeeService,
   ],
@@ -53,7 +53,7 @@ import { VehicleController } from './controller/vehicle.controller';
     ClientController,
     VehicleController,
     ProductController,
-    CategoryController,
+    TypeServiceController,
     OrderController,
     EmployeeController,
     RoleController,

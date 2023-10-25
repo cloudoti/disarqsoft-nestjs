@@ -18,7 +18,7 @@ export class ProductService {
   async list(): Promise<ProductEntity[]> {
     const prodRepository = this.datasource.getRepository(ProductEntity);
 
-    return await prodRepository.find({ relations: ['category'] });
+    return await prodRepository.find({ relations: ['typeService'] });
   }
 
   async getById(id: number): Promise<ProductEntity> {
@@ -26,7 +26,7 @@ export class ProductService {
 
     return await prodRepository.findOne({
       where: { id: id },
-      relations: ['category'],
+      relations: ['typeService'],
     });
   }
 
