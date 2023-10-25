@@ -18,12 +18,18 @@ import { EmployeeEntity } from './entities/employee.entity';
 import { EmployeeService } from './service/employee.service';
 import { EmployeeController } from './controller/employee.controller';
 import { RoleController } from './controller/role.controller';
+import { ClientEntity } from './entities/client.entity';
+import { VehicleEntity } from './entities/vehicle.entity';
+import { ClientService } from './service/client.service';
+import { ClientController } from './controller/client.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       UserEntity,
       EmployeeEntity,
+      ClientEntity,
+      VehicleEntity,
       CategoryEntity,
       ProductEntity,
       OrderEntity,
@@ -33,6 +39,7 @@ import { RoleController } from './controller/role.controller';
   ],
   providers: [
     UserService,
+    ClientService,
     ProductService,
     CategoryService,
     OrderService,
@@ -40,6 +47,7 @@ import { RoleController } from './controller/role.controller';
   ],
   controllers: [
     UserController,
+    ClientController,
     ProductController,
     CategoryController,
     OrderController,

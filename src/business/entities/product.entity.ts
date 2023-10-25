@@ -16,26 +16,10 @@ export class ProductEntity {
   id: number;
 
   @Column({
-    name: 'code',
-    nullable: false,
-  })
-  code: string;
-
-  @Column({
     name: 'name',
     nullable: false,
   })
   name: string;
-
-  @Column({
-    nullable: true,
-  })
-  description: string;
-
-  @Column({
-    nullable: true,
-  })
-  observation: string;
 
   @Column({
     nullable: false,
@@ -52,6 +36,7 @@ export class ProductEntity {
 
   @Column({
     nullable: false,
+    default: 1,
   })
-  status: string;
+  status: number;
 }
