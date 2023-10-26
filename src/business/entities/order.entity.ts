@@ -26,21 +26,23 @@ export class OrderEntity {
   issueDate: Date;
 
   @Column({
-    name: 'payment_method',
     nullable: false,
-  })
-  paymentMethod: string;
-
-  @Column({
-    name: 'total_delivery',
-    nullable: false,
-  })
-  totalDelivery: number;
-
-  @Column({
-    nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
   })
   total: number;
+
+  @Column({
+    nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
+  })
+  igv: number;
+
+  @Column()
+  warrantyDate: Date;
 
   @ManyToOne(() => UserEntity, (user) => user.id, {
     nullable: false,

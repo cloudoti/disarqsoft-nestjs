@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ClientEntity } from './client.entity';
+import { BrandEntity } from './brand.entity';
 
 @Entity({
   schema: 'das',
@@ -26,6 +27,14 @@ export class VehicleEntity {
     nullable: false,
   })
   model: string;
+
+  @ManyToOne(() => BrandEntity, (cat) => cat.id, {
+    nullable: false,
+  })
+  @JoinColumn({
+    name: 'brand_id',
+  })
+  brand: BrandEntity;
 
   @Column({
     nullable: false,

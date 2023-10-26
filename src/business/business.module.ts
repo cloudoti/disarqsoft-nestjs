@@ -14,9 +14,6 @@ import { OrderEntity } from './entities/order.entity';
 import { OrderDetailEntity } from './entities/order-detail.entity';
 import { OrderService } from './service/order.service';
 import { OrderController } from './controller/order.controller';
-import { EmployeeEntity } from './entities/employee.entity';
-import { EmployeeService } from './service/employee.service';
-import { EmployeeController } from './controller/employee.controller';
 import { RoleController } from './controller/role.controller';
 import { ClientEntity } from './entities/client.entity';
 import { VehicleEntity } from './entities/vehicle.entity';
@@ -24,18 +21,31 @@ import { ClientService } from './service/client.service';
 import { ClientController } from './controller/client.controller';
 import { VehicleService } from './service/vehicle.service';
 import { VehicleController } from './controller/vehicle.controller';
+import { QuotationEntity } from './entities/quotation.entity';
+import { QuotationDetailEntity } from './entities/quotation-detail.entity';
+import { QuotationController } from './controller/quotation.controller';
+import { QuotationService } from './service/quotation.service';
+import { BrandEntity } from './entities/brand.entity';
+import { ModuleEntity } from './entities/module.entity';
+import { MenuEntity } from './entities/menu.entity';
+import { RoleEntity } from './entities/role.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       UserEntity,
-      EmployeeEntity,
+      RoleEntity,
+      ModuleEntity,
+      MenuEntity,
       ClientEntity,
       VehicleEntity,
+      BrandEntity,
       TypeServiceEntity,
       ProductEntity,
       OrderEntity,
       OrderDetailEntity,
+      QuotationEntity,
+      QuotationDetailEntity,
     ]),
     forwardRef(() => AuthModule),
   ],
@@ -46,7 +56,7 @@ import { VehicleController } from './controller/vehicle.controller';
     ProductService,
     TypeServiceService,
     OrderService,
-    EmployeeService,
+    QuotationService,
   ],
   controllers: [
     UserController,
@@ -55,7 +65,7 @@ import { VehicleController } from './controller/vehicle.controller';
     ProductController,
     TypeServiceController,
     OrderController,
-    EmployeeController,
+    QuotationController,
     RoleController,
   ],
   exports: [UserService],

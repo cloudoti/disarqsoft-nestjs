@@ -5,24 +5,24 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { OrderEntity } from './order.entity';
 import { ProductEntity } from './product.entity';
+import { QuotationEntity } from './quotation.entity';
 
 @Entity({
   schema: 'das',
-  name: 'order_detail',
+  name: 'quotation_detail',
 })
-export class OrderDetailEntity {
+export class QuotationDetailEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @ManyToOne(() => OrderEntity, (order) => order.id, {
+  @ManyToOne(() => QuotationEntity, (o) => o.id, {
     nullable: false,
   })
   @JoinColumn({
-    name: 'order_id',
+    name: 'quotation_id',
   })
-  order: OrderEntity;
+  quotation: QuotationEntity;
 
   @ManyToOne(() => ProductEntity, (p) => p.id, {
     nullable: false,

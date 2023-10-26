@@ -23,8 +23,19 @@ export class ProductEntity {
 
   @Column({
     nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
   })
   price: number;
+
+  @Column({
+    nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
+  })
+  igv: number;
 
   @ManyToOne(() => TypeServiceEntity, (cat) => cat.id, {
     //nullable: false,

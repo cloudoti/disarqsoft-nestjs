@@ -5,12 +5,12 @@ import { TypeServiceEntity } from '../entities/type-service.entity';
 
 @Controller('type-service')
 export class TypeServiceController {
-  constructor(private categoryService: TypeServiceService) {}
+  constructor(private service: TypeServiceService) {}
 
   @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
   async list(): Promise<TypeServiceEntity[]> {
-    return this.categoryService.list();
+    return this.service.list();
   }
 }
