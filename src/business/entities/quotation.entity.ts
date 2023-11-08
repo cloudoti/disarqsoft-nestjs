@@ -46,6 +46,14 @@ export class QuotationEntity {
     precision: 10,
     scale: 2,
   })
+  price: number;
+
+  @Column({
+    nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
+  })
   total: number;
 
   @Column({

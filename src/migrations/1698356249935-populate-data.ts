@@ -37,10 +37,10 @@ export class PopulateData1698356249935 implements MigrationInterface {
         `);
 
     await queryRunner.query(`
-      INSERT INTO das.product (name, price, igv, active, type_service_id)
-      VALUES ('REVISIÓN DE X 0100', 150.00, 22.88, true, 1);
-      INSERT INTO das.product (name, price, igv, active, type_service_id)
-      VALUES ('MICROFONO 0102', 45.00, 6.86, true, 3);
+      INSERT INTO das.product (name, price, active, type_service_id)
+      VALUES ('REVISIÓN DE MOTOR', 150.00, true, 1);
+      INSERT INTO das.product (name, price, active, type_service_id)
+      VALUES ('ENLLANTE', 45.00, true, 4);
 
 
       INSERT INTO das.client (type_nie, nie, name, father_last_name, mother_last_name, company_name, phone, email, active)
@@ -49,13 +49,7 @@ export class PopulateData1698356249935 implements MigrationInterface {
 
     await queryRunner.query(`
         INSERT INTO das.vehicle (vehicle_registration, model, type, motor, year, active, client_id, brand_id)
-        VALUES ('RTX-2025', 'FOSTER', 'Pickup', 'ADFASDF3ASDF', '2023', true, 2, 3);
-
-
-        INSERT INTO das.quotation (issue_date, total, vehicle_id, client_id, igv)
-        VALUES ('2023-10-25 19:21:22.000000', 1500.00, 1, 2, 228.80);
-        INSERT INTO das.quotation_detail (quantity, price, total, quotation_id, product_id, igv)
-        VALUES (10.00, 150.00, 1500.00, 1, 1, 228.80);
+        VALUES ('RTX-2025', 'FOSTER', 'Pickup', 'ADFASDF3ASDF', '2023', true, 1, 3);
     `);
   }
 

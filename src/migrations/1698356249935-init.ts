@@ -68,6 +68,7 @@ export class Init1698356249935 implements MigrationInterface {
                  "igv"          numeric(10, 2) NOT NULL,
                  "warrantyDate" TIMESTAMP      NOT NULL,
                  "user_id"      integer        NOT NULL,
+                 "quotation_id" integer        NOT NULL,
                  CONSTRAINT "PK_1031171c13130102495201e3e20" PRIMARY KEY ("id")
              )`,
     );
@@ -85,7 +86,6 @@ export class Init1698356249935 implements MigrationInterface {
                  "id"              SERIAL            NOT NULL,
                  "name"            character varying NOT NULL,
                  "price"           numeric(10, 2)    NOT NULL,
-                 "igv"             numeric(10, 2)    NOT NULL,
                  "active"          boolean           NOT NULL DEFAULT true,
                  "type_service_id" integer,
                  CONSTRAINT "PK_bebc9158e480b949565b4dc7a82" PRIMARY KEY ("id")
@@ -136,6 +136,7 @@ export class Init1698356249935 implements MigrationInterface {
              (
                  "id"         SERIAL         NOT NULL,
                  "issue_date" TIMESTAMP      NOT NULL,
+                 "price"      numeric(10, 2) NOT NULL,
                  "total"      numeric(10, 2) NOT NULL,
                  "igv"        numeric(10, 2) NOT NULL,
                  "vehicle_id" integer        NOT NULL,
@@ -163,6 +164,10 @@ export class Init1698356249935 implements MigrationInterface {
     await queryRunner.query(
       `ALTER TABLE "das"."order"
                 ADD CONSTRAINT "FK_199e32a02ddc0f47cd93181d8fd" FOREIGN KEY ("user_id") REFERENCES "das"."user" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION`,
+    );
+    await queryRunner.query(
+      `ALTER TABLE "das"."order"
+      ADD CONSTRAINT "FK_beb59dc49ca545860a48cca85e6" FOREIGN KEY ("quotation_id") REFERENCES "das"."quotation" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION`,
     );
     await queryRunner.query(
       `ALTER TABLE "das"."product"
@@ -246,6 +251,9 @@ export class Init1698356249935 implements MigrationInterface {
     );
     await queryRunner.query(
       `ALTER TABLE "das"."order" DROP CONSTRAINT "FK_199e32a02ddc0f47cd93181d8fd"`,
+    );
+    await queryRunner.query(
+      `ALTER TABLE "das"."order" DROP CONSTRAINT "FK_beb59dc49ca545860a48cca85e6"`,
     );
     await queryRunner.query(
       `ALTER TABLE "das"."user" DROP CONSTRAINT "FK_fb2e442d14add3cefbdf33c4561"`,

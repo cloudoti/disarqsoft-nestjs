@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 import { OrderDetailEntity } from './order-detail.entity';
+import { QuotationEntity } from './quotation.entity';
 
 @Entity({
   schema: 'das',
@@ -51,6 +52,14 @@ export class OrderEntity {
     name: 'user_id',
   })
   user: UserEntity;
+
+  @ManyToOne(() => QuotationEntity, (user) => user.id, {
+    nullable: false,
+  })
+  @JoinColumn({
+    name: 'quotation_id',
+  })
+  quotation: QuotationEntity;
 
   @OneToMany(() => OrderDetailEntity, (d) => d.order, {
     cascade: true,

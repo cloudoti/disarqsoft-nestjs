@@ -15,6 +15,15 @@ export class QuotationService {
     return await repository.find({ relations: ['client', 'vehicle'] });
   }
 
+  async getById(id: number): Promise<QuotationEntity> {
+    const repository = this.datasource.getRepository(QuotationEntity);
+
+    return await repository.findOne({
+      where: { id },
+      relations: ['client', 'vehicle', 'detail', 'detail.product'],
+    });
+  }
+
   async save(o: QuotationEntity) {
     o.issueDate = new Date();
     o.detail.forEach((d) => (d.quotation = o));

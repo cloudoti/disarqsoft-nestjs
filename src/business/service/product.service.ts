@@ -1,11 +1,5 @@
-import {
-  Inject,
-  Injectable,
-  Logger,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { UserEntity } from '../entities/user.entity';
 import { ProductEntity } from '../entities/product.entity';
 
 @Injectable()

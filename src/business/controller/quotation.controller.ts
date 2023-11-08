@@ -3,12 +3,11 @@ import {
   Controller,
   Get,
   HttpCode,
+  Param,
   Post,
   UseGuards,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
-import { OrderEntity } from '../entities/order.entity';
-import { OrderService } from '../service/order.service';
 import { QuotationService } from '../service/quotation.service';
 import { QuotationEntity } from '../entities/quotation.entity';
 
@@ -21,6 +20,13 @@ export class QuotationController {
   @HttpCode(200)
   async list(): Promise<QuotationEntity[]> {
     return this.service.list();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/:id')
+  @HttpCode(200)
+  async getById(@Param('id') id: number): Promise<QuotationEntity> {
+    return this.service.getById(id);
   }
 
   @UseGuards(JwtAuthGuard)
