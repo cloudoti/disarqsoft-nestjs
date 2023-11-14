@@ -31,6 +31,13 @@ export class VehicleController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get('/client/:id')
+  @HttpCode(200)
+  async getByClient(@Param('id') id: number): Promise<VehicleEntity[]> {
+    return this.vehicleService.getByClientId(id);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Post()
   @HttpCode(200)
   async add(@Body() body: VehicleEntity): Promise<VehicleEntity> {

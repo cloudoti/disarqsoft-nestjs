@@ -24,6 +24,15 @@ export class brandService {
     });
   }
 
+  async getByClientId(id: number): Promise<VehicleEntity[]> {
+    const repository = this.datasource.getRepository(VehicleEntity);
+
+    return await repository.find({
+      where: { client: { id } },
+      relations: ['client', 'brand'],
+    });
+  }
+
   async save(prod: VehicleEntity, id?: number): Promise<VehicleEntity> {
     if (id && +id !== prod.id) {
       throw new Error('Incorrect');
