@@ -1,10 +1,11 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { VehicleEntity } from '../entities/vehicle.entity';
+import { BrandEntity } from '../entities/brand.entity';
 
 @Injectable()
-export class VehicleService {
-  private logger: Logger = new Logger(VehicleService.name);
+export class brandService {
+  private logger: Logger = new Logger(brandService.name);
 
   @Inject(DataSource)
   private readonly datasource: DataSource;
@@ -12,7 +13,7 @@ export class VehicleService {
   async list(): Promise<VehicleEntity[]> {
     const repository = this.datasource.getRepository(VehicleEntity);
 
-    return await repository.find();
+    return await repository.find({ relations: ['brand'] });
   }
 
   async getById(id: number): Promise<VehicleEntity> {
@@ -20,7 +21,7 @@ export class VehicleService {
 
     return await repository.findOne({
       where: { id: id },
-      relations: ['client'],
+      relations: ['client', 'brand'],
     });
   }
 

@@ -57,4 +57,8 @@ export class UserEntity {
     nullable: false,
   })
   active: boolean;
+
+  constructor(id: number) {
+    this.id = id;
+  }
 }

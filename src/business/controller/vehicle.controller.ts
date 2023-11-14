@@ -9,12 +9,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
-import { VehicleService } from '../service/vehicle.service';
+import { brandService } from '../service/vehicle.service';
 import { VehicleEntity } from '../entities/vehicle.entity';
 
 @Controller('vehicle')
 export class VehicleController {
-  constructor(private vehicleService: VehicleService) {}
+  constructor(private vehicleService: brandService) {}
 
   @UseGuards(JwtAuthGuard)
   @Get()

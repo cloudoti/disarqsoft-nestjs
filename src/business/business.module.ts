@@ -19,7 +19,7 @@ import { ClientEntity } from './entities/client.entity';
 import { VehicleEntity } from './entities/vehicle.entity';
 import { ClientService } from './service/client.service';
 import { ClientController } from './controller/client.controller';
-import { VehicleService } from './service/vehicle.service';
+import { brandService } from './service/vehicle.service';
 import { VehicleController } from './controller/vehicle.controller';
 import { QuotationEntity } from './entities/quotation.entity';
 import { QuotationDetailEntity } from './entities/quotation-detail.entity';
@@ -29,6 +29,8 @@ import { BrandEntity } from './entities/brand.entity';
 import { ModuleEntity } from './entities/module.entity';
 import { MenuEntity } from './entities/menu.entity';
 import { RoleEntity } from './entities/role.entity';
+import { BrandService } from './service/brand.service';
+import { BrandController } from './controller/brand.controller';
 
 @Module({
   imports: [
@@ -52,11 +54,12 @@ import { RoleEntity } from './entities/role.entity';
   providers: [
     UserService,
     ClientService,
-    VehicleService,
+    brandService,
     ProductService,
     TypeServiceService,
     OrderService,
     QuotationService,
+    BrandService,
   ],
   controllers: [
     UserController,
@@ -67,6 +70,7 @@ import { RoleEntity } from './entities/role.entity';
     OrderController,
     QuotationController,
     RoleController,
+    BrandController,
   ],
   exports: [UserService],
 })
