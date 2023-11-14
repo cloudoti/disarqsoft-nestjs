@@ -1,7 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { VehicleEntity } from '../entities/vehicle.entity';
-import { BrandEntity } from '../entities/brand.entity';
 
 @Injectable()
 export class brandService {
