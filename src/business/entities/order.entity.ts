@@ -11,6 +11,8 @@ import {
 import { UserEntity } from './user.entity';
 import { OrderDetailEntity } from './order-detail.entity';
 import { QuotationEntity } from './quotation.entity';
+import { VehicleEntity } from './vehicle.entity';
+import { ClientEntity } from './client.entity';
 
 @Entity({
   schema: 'das',
@@ -32,6 +34,14 @@ export class OrderEntity {
     precision: 10,
     scale: 2,
   })
+  price: number;
+
+  @Column({
+    nullable: false,
+    type: 'numeric',
+    precision: 10,
+    scale: 2,
+  })
   total: number;
 
   @Column({
@@ -44,6 +54,22 @@ export class OrderEntity {
 
   @Column()
   warrantyDate: Date;
+
+  @ManyToOne(() => VehicleEntity, (v) => v.id, {
+    nullable: false,
+  })
+  @JoinColumn({
+    name: 'vehicle_id',
+  })
+  vehicle: VehicleEntity;
+
+  @ManyToOne(() => ClientEntity, (v) => v.id, {
+    nullable: false,
+  })
+  @JoinColumn({
+    name: 'client_id',
+  })
+  client: ClientEntity;
 
   @ManyToOne(() => UserEntity, (user) => user.id, {
     nullable: false,

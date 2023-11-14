@@ -1,5 +1,6 @@
 import {
   Body,
+  Request,
   Controller,
   Get,
   HttpCode,
@@ -24,7 +25,7 @@ export class OrderController {
   @UseGuards(JwtAuthGuard)
   @Post()
   @HttpCode(200)
-  async save(@Body() body: OrderEntity): Promise<void> {
-    return this.orderService.save(body);
+  async save(@Body() body: OrderEntity, @Request() req: any): Promise<void> {
+    return this.orderService.save(body, req.user.id);
   }
 }
