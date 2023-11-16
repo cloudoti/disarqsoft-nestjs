@@ -16,7 +16,7 @@ require('dotenv').config();
     JwtModule.register({
       global: true,
       secret: process.env.JWT_TOKEN,
-      signOptions: { expiresIn: '20m' },
+      signOptions: { expiresIn: '120m' },
     }),
   ],
   controllers: [AuthController],

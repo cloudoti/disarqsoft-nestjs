@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { QuotationService } from '../service/quotation.service';
@@ -18,8 +19,8 @@ export class QuotationController {
   @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
-  async list(): Promise<QuotationEntity[]> {
-    return this.service.list();
+  async list(@Query('filter') filter?: string): Promise<QuotationEntity[]> {
+    return this.service.list(filter);
   }
 
   @UseGuards(JwtAuthGuard)

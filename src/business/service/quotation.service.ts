@@ -9,10 +9,18 @@ export class QuotationService {
   @Inject(DataSource)
   private readonly datasource: DataSource;
 
-  async list(): Promise<QuotationEntity[]> {
+  async list(filter?: string): Promise<QuotationEntity[]> {
     const repository = this.datasource.getRepository(QuotationEntity);
 
-    return await repository.find({ relations: ['client', 'vehicle'] });
+    const filterQuery = {};
+    if (filter) {
+      filterQuery['id'] = +filter;
+    }
+
+    return await repository.find({
+      relations: ['client', 'vehicle'],
+      where: filterQuery,
+    });
   }
 
   async getById(id: number): Promise<QuotationEntity> {
