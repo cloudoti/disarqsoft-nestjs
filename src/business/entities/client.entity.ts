@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { UserEntity } from './user.entity';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
   schema: 'das',
@@ -17,7 +10,7 @@ export class ClientEntity {
 
   @Column({
     name: 'type_nie',
-    nullable: false,
+    nullable: true,
   })
   typeNie: string;
 
@@ -28,19 +21,19 @@ export class ClientEntity {
 
   @Column({
     name: 'name',
-    nullable: false,
+    nullable: true,
   })
   name: string;
 
   @Column({
     name: 'father_last_name',
-    nullable: false,
+    nullable: true,
   })
   fatherLastName: string;
 
   @Column({
     name: 'mother_last_name',
-    nullable: false,
+    nullable: true,
   })
   motherLastName: string;
 
