@@ -61,9 +61,7 @@ export class UserService {
   async list(body?: any): Promise<UserEntity[]> {
     const userRepository = this.datasource.getRepository(UserEntity);
 
-    return await userRepository.find({
-      where: { active: true },
-    });
+    return await userRepository.find();
   }
 
   async listRole(): Promise<RoleEntity[]> {
