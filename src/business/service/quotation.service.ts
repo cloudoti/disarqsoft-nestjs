@@ -18,7 +18,7 @@ export class QuotationService {
     }
 
     return await repository.find({
-      relations: ['client', 'vehicle'],
+      relations: ['client', 'vehicle', 'detail.product.typeService'],
       where: filterQuery,
     });
   }

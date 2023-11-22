@@ -10,6 +10,15 @@ export class OrderService {
   @Inject(DataSource)
   private readonly datasource: DataSource;
 
+  async getById(id: number): Promise<OrderEntity> {
+    const repository = this.datasource.getRepository(OrderEntity);
+
+    return await repository.findOne({
+      where: { id },
+      relations: ['client', 'vehicle', 'detail', 'detail.product'],
+    });
+  }
+
   async list(): Promise<OrderEntity[]> {
     const repository = this.datasource.getRepository(OrderEntity);
 

@@ -52,7 +52,9 @@ export class OrderEntity {
   })
   igv: number;
 
-  @Column()
+  @Column({
+    name: 'warranty_date',
+  })
   warrantyDate: Date;
 
   @ManyToOne(() => VehicleEntity, (v) => v.id, {
