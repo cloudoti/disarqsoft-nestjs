@@ -7,6 +7,7 @@ import {
   Post,
   UseGuards,
   Param,
+  Query,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { OrderEntity } from '../entities/order.entity';
@@ -27,8 +28,8 @@ export class OrderController {
   @UseGuards(JwtAuthGuard)
   @Get()
   @HttpCode(200)
-  async list(): Promise<OrderEntity[]> {
-    return this.orderService.list();
+  async list(@Query('filter') filter?: string): Promise<OrderEntity[]> {
+    return this.orderService.list(filter);
   }
 
   @UseGuards(JwtAuthGuard)

@@ -19,10 +19,18 @@ export class OrderService {
     });
   }
 
-  async list(): Promise<OrderEntity[]> {
+  async list(filter?: string): Promise<OrderEntity[]> {
     const repository = this.datasource.getRepository(OrderEntity);
 
-    return await repository.find({ relations: ['client', 'vehicle'] });
+    const filterQuery = {};
+    if (filter) {
+      filterQuery['id'] = +filter;
+    }
+
+    return await repository.find({
+      relations: ['client', 'vehicle'],
+      where: filterQuery,
+    });
   }
 
   async save(o: OrderEntity, idUser: number) {

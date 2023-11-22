@@ -40,7 +40,7 @@ export class UserService {
     const userRepository = this.datasource.getRepository(UserEntity);
 
     const user = await userRepository.findOne({
-      where: { username: body.username },
+      where: { username: body.username, active: true },
     });
 
     const error = 'E-Mail or Pass incorrect';

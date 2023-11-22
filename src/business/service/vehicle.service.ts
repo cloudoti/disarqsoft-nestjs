@@ -12,7 +12,9 @@ export class brandService {
   async list(): Promise<VehicleEntity[]> {
     const repository = this.datasource.getRepository(VehicleEntity);
 
-    return await repository.find({ relations: ['brand'] });
+    return await repository.find({
+      relations: ['brand'],
+    });
   }
 
   async getById(id: number): Promise<VehicleEntity> {
