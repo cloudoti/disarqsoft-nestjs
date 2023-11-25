@@ -1,12 +1,12 @@
 import {
+  Body,
   Controller,
   Get,
-  Put,
-  Post,
   HttpCode,
-  UseGuards,
   Param,
-  Body,
+  Post,
+  Put,
+  UseGuards,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { ProductService } from '../service/product.service';

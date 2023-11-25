@@ -13,4 +13,8 @@ export class RoleEntity {
     nullable: true,
   })
   name: string;
+
+  constructor(id?: number) {
+    this.id = id;
+  }
 }
